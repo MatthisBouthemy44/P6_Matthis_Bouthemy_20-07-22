@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const Sauce = require('../models/Sauce');
+
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
@@ -38,4 +40,13 @@ exports.login = (req, res, next) => {
 
         }).catch(error => res.status(500).json({ error }));
 };
-//
+
+
+exports.sauces = (req, res, next) => {
+    const newSauce = new Sauce({
+      ...req.body //L'opérateur spread ... est utilisé pour faire une copie de tous les éléments de req.body
+    });
+    newSauce.save()
+      .then(() => res.status(201).json({message: 'Nouvel Sauce enregistré !'}))
+      .catch(error => res.status(400).json({error}));
+  };
