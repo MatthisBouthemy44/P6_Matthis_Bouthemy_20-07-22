@@ -1,10 +1,9 @@
+//Require
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
 const { json } = require('body-parser');
-const { sauces } = require('./user');
 
 //Créer une sauce
-
 exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
@@ -19,8 +18,26 @@ exports.createSauce = (req, res, next) => {
     .catch(error => res.status(400).json({ error }))
 };
 
+
+//Afficher toutes les sauces
 exports.getAllSauces = (req, res, next ) => {
     Sauce.find()
     .then(sauces => res.status(200).json(sauces))
     .catch(error => res.status(400).json({ error }))
 }
+
+exports.getOneSauce = (req, res, next) => {
+   Sauce.findById(req.params.id).then(
+      (sauce) => {
+        if (!sauce) {
+          return res.status(404).send(new Error('Product not found!'));
+        }
+        sauce.imageUrl = req.protocol + '://' + req.get('host') + '/images/' + sauce.imageUrl;
+        res.status(200).json(sauce);
+      }
+    ).catch(
+      () => {
+        res.status(500).send(new Error('Database error!'));
+      }
+    )
+  };

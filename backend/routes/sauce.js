@@ -13,6 +13,7 @@ router.post('/', auth, multer, sauceCtrl.createSauce);
 
 //GET
 router.get('/', auth, sauceCtrl.getAllSauces);
+router.get('/:id', auth, sauceCtrl.getOneSauce);
 
 
 module.exports = router;

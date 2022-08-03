@@ -33,9 +33,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// GET method route
-
-
 //Routes
 app.use('/api/auth', userRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
