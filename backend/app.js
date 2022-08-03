@@ -1,18 +1,19 @@
 //importer express
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require('./models/User');
-
-
+const path = require('path');
 
 
 //import des routes
 const userRoutes = require('./routes/user');
-const sauceRoutes = require('./models/Sauce');
+const sauceRoutes = require('./routes/sauce');
+
+
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0.jyyv5.mongodb.net/?retryWrites=true&w=majority',
   {
@@ -37,4 +38,6 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/api/auth', userRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/sauces', sauceRoutes);
 module.exports = app;
