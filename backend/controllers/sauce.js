@@ -6,7 +6,7 @@ const { sauces } = require('./user');
 //Créer une sauce
 
 exports.createSauce = (req, res, next) => {
-    const sauceObject = JSON.parse(req.body.Sauce);
+    const sauceObject = JSON.parse(req.body.sauce);
     delete sauceObject._id;
     const sauce = new Sauce({
         ...sauceObject,
