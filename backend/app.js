@@ -37,7 +37,4 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/api/auth', userRoutes);
-/*app.use('/api/auth/', function (req, res,) {
-  userRoutes
-});*/
 module.exports = app;
