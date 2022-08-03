@@ -7,9 +7,9 @@ const cors = require('cors');
 
 //import des routes
 const userRoutes = require('./routes/user');
-const sauceRoutes = require('./routes/sauce');
+const sauceRoutes = require('./models/Sauce');
 
-mongoose.connect('mongodb+srv://xxxxx:iymzagp0MWVnLxVn@atlascluster.4dm1h.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://admin:4QeLEQ5377Q6D4PH@cluster0.r95lq.mongodb.net/?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -26,6 +26,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 });
+
 //Routes
 app.use('/api/auth', userRoutes);
 module.exports = app;
