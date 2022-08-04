@@ -2,6 +2,7 @@
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
 const { json } = require('body-parser');
+const sauce = require('../routes/sauce');
 
 //Créer une sauce
 exports.createSauce = (req, res, next) => {
@@ -40,4 +41,25 @@ exports.getOneSauce = (req, res, next) => {
         res.status(500).send(new Error('Database error!'));
       }
     )
+  };
+
+  exports.modifySauces = (req, res, next ) => {
+    const sauceObject = req.fil ? {
+      ...JSON.parse(req.body.sauce),
+      imageUrl:  `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    }: {...req.body};
+
+    delete sauceObject._userId;
+    Sauce.findOne({_id: req.params.id})
+      .then((sauce) => {
+        if(Sauce._userId != req.auth.userId){
+          res.status(401).json({message:'Non autorisé'})
+        }else{
+          Sauce.updateOne({_id: req.params.id},{...sauceObject, _id:req.params.id})
+          .then(() => res.status(200).json({message: 'Sauce modifié'}))
+          .catch(error => res.status(401).json({ error }))
+        }
+      })
+      .catch(error => res.status(400).json({ error }))
+
   };
