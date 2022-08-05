@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const User = require('./models/User');
 const path = require('path');
 
 
