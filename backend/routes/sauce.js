@@ -10,6 +10,7 @@ const multer = require('../middleware/multer-config');
 
 //POST
 router.post('/', auth, multer, sauceCtrl.createSauce);
+router.post('/:id/like', auth, sauceCtrl.likeDislike)
 
 //GET
 router.get('/', auth, sauceCtrl.getAllSauces);
