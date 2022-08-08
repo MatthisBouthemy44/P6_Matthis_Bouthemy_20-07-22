@@ -42,11 +42,11 @@ exports.login = (req, res, next) => {
 };
 
 
-exports.sauces = (req, res, next) => {
+/*exports.sauces = (req, res, next) => {
     const newSauce = new Sauce({
       ...req.body //L'opérateur spread ... est utilisé pour faire une copie de tous les éléments de req.body
     });
     newSauce.save()
       .then(() => res.status(201).json({message: 'Nouvel Sauce enregistré !'}))
       .catch(error => res.status(400).json({error}));
-  };
+  };*/

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="309.96" height="416.435" viewBox="0 0 309.96 416.435">
-  <g id="ÉCLAIR_VIOLET" data-name="ÉCLAIR VIOLET" transform="translate(154.98 208.217)">
-    <g id="Groupe_2330" data-name="Groupe 2330" transform="translate(-154.98 -208.217)">
-      <path id="Tracé_1635" data-name="Tracé 1635" d="M30.439,191.246a39.487,39.487,0,0,0,47.357-47.4,39.09,39.09,0,0,0-29.341-29.4A39.5,39.5,0,0,0,1.014,161.91,39.082,39.082,0,0,0,30.439,191.246Z" transform="translate(0)" fill="#ec7531"/>
-      <path id="Tracé_1636" data-name="Tracé 1636" d="M134.32,296.88,242.4,404.844a39.576,39.576,0,0,0,55.968-55.971l-84.486-84.48,83.838-83.835.3-.3a39.277,39.277,0,0,0-4.151-59.52L184.712,11.586a39.573,39.573,0,1,0-55.965,55.965l85.022,85.021L135.32,230.88" transform="translate(0)" fill="#a3238e"/>
-      <ellipse id="Ellipse_102" data-name="Ellipse 102" cx="44" cy="43.5" rx="44" ry="43.5" transform="translate(119.32 220.88)" fill="#a3238e"/>
-    </g>
-  </g>
-</svg>
